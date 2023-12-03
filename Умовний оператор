@@ -1,0 +1,170 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Лінійний_оператор
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Завдання 1:
+            int numb;
+            Console.Write("Вкажіть число: ");
+            numb = int.Parse(Console.ReadLine());
+            if (numb < 0)
+            {
+                Console.WriteLine("Число є від'ємним");
+            }
+            else if (numb > 0)
+            {
+                Console.WriteLine("Число є додатнім");
+            }
+            else
+            {
+                Console.WriteLine("Число = нулю");
+            }
+
+            // Завдання 2:
+            int year;
+            Console.Write("Вкажіть рік: ");
+            year = int.Parse(Console.ReadLine());
+
+            if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+            {
+                Console.WriteLine("Цей рік є високосним");
+            }
+            else
+            {
+                Console.WriteLine("Цей рік не є високосним");
+            }
+
+            // Завдання 3:
+            Console.WriteLine("Ваш річний дохід: ");
+            double income = Convert.ToDouble(Console.ReadLine());
+            double tax;
+            if (income <= 70000)
+            {
+                tax = income * 0.15;
+            }
+            else if (income <= 120000)
+            {
+                tax = income * 0.28;
+            }
+            else if (income <= 300000)
+            {
+                tax = income * 0.39;
+            }
+            else
+            {
+                tax = income * 0.49;
+            }
+            Console.WriteLine($"Обчислений податок на дохід такий: {tax}");
+
+            // Завдання 4:
+            Console.WriteLine("Вкажіть символ: ");
+            char inputchar = Convert.ToChar(Console.ReadLine());
+            string vowels = "AEIOUetc";
+            if (char.IsLetter(inputchar))
+            {
+                if (vowels.Contains(inputchar.ToString()))
+                {
+                    Console.WriteLine("Символ є голосною літерою");
+                }
+                else
+                {
+                    Console.WriteLine("Символ є приголосною літерою");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Символ НЕ є літерою");
+            }
+
+            // Завдання 5:
+            Console.WriteLine("Вкажіть 1 число:");
+            double number1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Вкажіть 2 число:");
+            double number2 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Вкажіть 3 число:");
+            double number3 = Convert.ToDouble(Console.ReadLine());
+            double maxnum;
+            if (number1 >= number2 && number1 >= number3)
+            {
+                maxnum = number1;
+            }
+            else if (number2 >= number1 && number2 >= number3)
+            {
+                maxnum = number2;
+            }
+            else
+            {
+                maxnum = number3;
+            }
+            Console.WriteLine($"Найбільшим є число: {maxnum}");
+
+            // Завдання 6:
+            Console.WriteLine("Вкажіть вік:");
+            int age = Convert.ToInt32(Console.ReadLine());
+            if (age >= 12 && age <= 18)
+            {
+                Console.WriteLine("Ця кількість років є підлітковим віком");
+            }
+            else
+            {
+                Console.WriteLine("Ця кількість років НЕ є підлітковим віком");
+            }
+
+            // Завдання 7:
+            Console.WriteLine("Ваше число: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            if (number % 2 == 0)
+            {
+                Console.WriteLine("Число є парним");
+            }
+            else
+            {
+                Console.WriteLine("Число є НЕпарним");
+            }
+
+            if (number % 3 == 0)
+            {
+                Console.WriteLine("Число ділиться на 3");
+            }
+            else
+            {
+                Console.WriteLine("Число НЕ ділиться на 3");
+            }
+
+            // Завдання 8:
+            Console.WriteLine("Вкажіть сторону a:");
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Вкажіть сторону b:");
+            double b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Вкажіть сторону c:");
+            double c = Convert.ToDouble(Console.ReadLine());
+            if (a + b > c && a + c > b && b + c > a)
+            {
+                if (a >= b && a >= c)
+                {
+                    Console.WriteLine("Сторона a є найдовшою");
+                }
+                else if (b >= a && b >= c)
+                {
+                    Console.WriteLine("Сторона b є найдовшою");
+                }
+                else
+                {
+                    Console.WriteLine("Сторона c є найдовшою");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Всі сторони є рівними, трикутника НЕ існує");
+
+            }
+        }
+    }
+}
