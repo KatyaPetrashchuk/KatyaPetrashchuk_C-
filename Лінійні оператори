@@ -1,0 +1,126 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Лінійний_оператор
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Завдання 1:
+            Console.WriteLine("Число 1: ");
+            int number1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Число 2: ");
+            int number2 = Convert.ToInt32(Console.ReadLine());
+            if (number1 >= 1 && number1 <= 31 && number2 >= 1 && number2 <= 12)
+            {
+                Console.WriteLine("Ці числа можуть бути днем та місяцем");
+            }
+            else
+            {
+                Console.WriteLine("Ці числа НЕ можуть бути днем та місяцем");
+            }
+
+            //Завдання 2:
+            Console.WriteLine("Введіть дійсне число: ");
+            double numb = Convert.ToDouble(Console.ReadLine());
+            int firstnumb = (int)(numb * 10) % 10;
+            int secondnumb = (int)(numb * 100) % 10;
+            Console.WriteLine($"{firstnumb} + {secondnumb} = {firstnumb + secondnumb}");
+            
+            //Завдання 3:
+            Console.WriteLine("Введіть число (годину): ");
+            int h = int.Parse(Console.ReadLine());
+            if (h >= 6 && h <= 11)
+            {
+                Console.WriteLine("Доброго ранку!");
+            }
+            else if (h >= 12 && h <= 17)
+            {
+                Console.WriteLine("Добрий день!");
+            }
+            else if (h >= 18 && h <= 23)
+            {
+                Console.WriteLine("Добрий вечір!");
+            }
+            else
+            {
+                Console.WriteLine("Доброї ночі!");
+            }
+
+            //Завдання 4:
+            Console.WriteLine("Введіть змінну 1: ");
+            int var1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введіть змінну 2: ");
+            int var2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введіть змінну 3: ");
+            int var3 = int.Parse(Console.ReadLine());
+            int max = var1;
+            int min = var2;
+            if (var1 > var2 && var1 > var3)
+            {
+                max = var1;
+            }
+            else if (var2 > var1 && var2 > var3)
+            {
+                max = var2;
+            }
+            else if (var3 > var1 && var3 > var2)
+            {
+                max = var3;
+            }
+            if (var1 < var2 && var1 < var3)
+            {
+                min = var1;
+            }
+            else if (var2 < var1 && var2 < var3)
+            {
+                min = var2;
+            }
+            else if (var3 < var1 && var3 < var2)
+            {
+                min = var3;
+            }
+            Console.WriteLine($"Число MAX: {max}, Число MIN: {min}");
+
+            //Завдання 5:
+            Console.WriteLine("Довжина прямокутника = ");
+            double a = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ширина прямокутника =  ");
+            double b = double.Parse(Console.ReadLine());
+            double S = a * b;
+            Console.WriteLine($"Площа прямокутника = {S}");
+
+            //Завдання 6:
+            Console.WriteLine("Введіть число: ");
+            int number = int.Parse(Console.ReadLine());
+            if (number % 2 == 0)
+            {
+                Console.WriteLine($"{number} є парним числом");
+            }
+            else
+            {
+                Console.WriteLine($"{number} є НЕпарним числом");
+            }
+
+            //Завдання 7:
+            Console.WriteLine("Вкажіть температуру (в градусах Цельсія): ");
+            double c = double.Parse(Console.ReadLine());
+            double f = c * 9 / 5 + 32;
+            Console.WriteLine($"Температура (в градусах Фаренгейта): {f}");
+
+            //Завдання 8:
+            Console.WriteLine("Вкажіть натуральне число: ");
+            int n = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                sum += i;
+            }
+            Console.WriteLine($"Сума перших {n} натуральних чисел = {sum}");
+        }
+    }
+}
