@@ -1,0 +1,112 @@
+using System;
+
+
+namespace Оператор_циклу
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+                //Завдання 1:
+                Console.WriteLine("Всі числа від 1 до 20 (включно): ");
+                for (int numb = 1; numb <= 20; numb++)
+                {
+                    if (numb % 2 == 0)
+                    {
+                        Console.WriteLine(numb);
+                    }
+                }
+
+                //Завдання 2:
+                int sum = 0;
+                for (int a = 1; a <= 100; a++)
+                {
+                    sum += a;
+                }
+                Console.WriteLine($"Сума всіх чисел від 1 до 100 = {sum}");
+
+                //Завдання 3:
+                Console.WriteLine("Вкажіть число: ");
+                int number = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Ось таблиця множення для заданого числа {number}: ");
+                for (int b = 1; b <= 10; b++)
+                {
+                    int result = number * b;
+                    Console.WriteLine($"{number} * {b} = {result}");
+                }
+
+                //Завдання 4:
+                Console.WriteLine("Вкаіть число: ");
+                int num = int.Parse(Console.ReadLine());
+                int res = 1;
+                for (int с = 1; с <= num; с++)
+                {
+                    res *= с;
+                }
+                Console.WriteLine($"Факторіал числа {num} є таким: {res}");
+
+                //Завдання 5:
+                int suma = 0;
+                for (int e = 2; e <= 50; e++)
+                {
+                    int d = 0;
+                    for (int f = 2; f <= e / 2; f++)
+                    {
+                        if (e % f == 0)
+                        {
+                            d++;
+                        }
+                    }
+                    if (d == 0)
+                    {
+                        suma += e;
+                    }
+                }
+                Console.WriteLine($"Сума всіх простих чисел в межах від 1 до 50 така: {suma}");
+
+                //Завдання 6:
+                Console.WriteLine("Вкажіть число: ");
+                int g = int.Parse(Console.ReadLine());
+                string bin = "";
+                while (g > 0)
+                {
+                    int h = g % 2;
+                    bin = h + bin;
+                    g /= 2;
+                }
+                Console.WriteLine($"Число переведене в двійкову систему числення таке: {bin}");
+
+                //Завдання 7:
+                Console.Write("Вкажіть число: ");
+                int Number = int.Parse(Console.ReadLine());
+                int sym = 1, count = 2, previous = 0, current = 1;
+                while (current < Number)
+                {
+                    int next = previous + current;
+                    if (next < Number)
+                    {
+                        sym += next;
+                        count++;
+                    }
+                    previous = current;
+                    current = next;
+                }
+                Console.WriteLine($"Сума чисел Фібоначчі до {Number}: {sym}, Кількість елементів є такою: {count}");
+
+                //Завдання 8:
+                Console.Write("Вкажіть 1 число: ");
+                int num1 = int.Parse(Console.ReadLine());
+                Console.Write("Вкажіть 2 число: ");
+                int num2 = int.Parse(Console.ReadLine());
+                while (num2 != 0)
+                {
+                    int temp = num2;
+                    num2 = num1 % num2;
+                    num1 = temp;
+                }
+                int ncd = num1;
+                Console.WriteLine($"Найбільший спільний дільник для цих чисел є таким: {ncd}");
+            }
+        }
+    }
