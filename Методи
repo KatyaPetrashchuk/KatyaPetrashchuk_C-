@@ -1,0 +1,188 @@
+using System;
+
+namespace Методи
+{
+    class Program
+    {
+        static double add(double operand1, double operand2)
+        {
+            return operand1 + operand2;
+        }
+        static double subtract(double operand1, double operand2)
+        {
+            return operand1 - operand2;
+        }
+        static double mult(double operand1, double operand2)
+        {
+            return operand1 * operand2;
+        }
+        static double division(double operand1, double operand2)
+        {
+            return operand1 / operand2;
+        }
+        static bool IsPrime(int number)
+        {
+            if (number <= 1)
+            {
+                return false;
+            }
+            for (int i = 2; i <= Math.Sqrt(number); i++)
+            {
+                if (number % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        static double ConvertCurrency(double amount)
+        {
+            return amount / 37;
+        }
+        static (int min, int max) FindMinMax(int[] arr)
+        {
+            int min = arr[0];
+            int max = arr[0];
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] < min)
+                {
+                    min = arr[i];
+                }
+                else if (arr[i] > max)
+                {
+                    max = arr[i];
+                }
+            }
+            return (min, max);
+        }
+        static void CountVowelsAndConsonants(string str)
+        {
+            int vowelCount = CountLetters(str, "aeiouAEIOU");
+            int consonantCount = CountLetters(str, "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ");
+            Console.WriteLine($"Кількість голосних букв: {vowelCount}");
+            Console.WriteLine($"Кількість приголосних букв: {consonantCount}");
+        }
+        static int CountLetters(string input, string letters)
+        {
+            int count = 0;
+            foreach (char a in input)
+            {
+                if (letters.Contains(a.ToString()))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        static void CalculateCircle()
+        {
+            Console.Write("Введіть радіус круга: ");
+            double radius = Convert.ToDouble(Console.ReadLine());
+            double area = Math.PI * Math.Pow(radius, 2);
+            Console.WriteLine($"Площа круга: {area}");
+        }
+        static void CalculateRectangle()
+        {
+            Console.Write("Введіть довжину прямокутника: ");
+            double length = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введіть ширину прямокутника: ");
+            double width = Convert.ToDouble(Console.ReadLine());
+            double area = length * width;
+            Console.WriteLine($"Площа прямокутника: {area}");
+        }
+        static void CalculateCube()
+        {
+            Console.Write("Введіть довжину ребра куба: ");
+            double sideLength = Convert.ToDouble(Console.ReadLine());
+            double volume = Math.Pow(sideLength, 3);
+            Console.WriteLine($"Об'єм куба: {volume}");
+        }
+        static void Main(string[] args)
+        {
+
+            // Завдання 1:
+            Console.WriteLine("Вкажіть операнд 1: ");
+            double operand1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Вкажіть операнд 2: ");
+            double operand2 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Вкажіть операцію (+, -, , /): ");
+            string operation = Console.ReadLine();
+            switch (operation)
+            {
+                case "+":
+                    Console.WriteLine(add(operand1, operand2));
+                    break;
+                case "-":
+                    Console.WriteLine(subtract(operand1, operand2));
+                    break;
+                case "":
+                    Console.WriteLine(mult(operand1, operand2));
+                    break;
+                case "/":
+                    if (operand2 == 0)
+                    {
+                        Console.WriteLine("Помилка у зв'язку з діленням на нуль");
+                    }
+                    else
+                    {
+                        Console.WriteLine(division(operand1, operand2));
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Помилка (невідома операція)");
+                    break;
+            }
+
+            // Завдання 2:
+            Console.Write("Вкажіть число: ");
+            int numb = Convert.ToInt32(Console.ReadLine());
+            bool isPrime = IsPrime(numb);
+            if (isPrime)
+            {
+                Console.WriteLine($"Число {numb} є простим");
+            }
+            else
+            {
+                Console.WriteLine($"Число {numb} НЕ є простим");
+            }
+
+            // Завдання 3:
+            Console.WriteLine("Вкажіть суму в гривнях: ");
+            double amount = Convert.ToDouble(Console.ReadLine());
+            double convertedAmount = ConvertCurrency(amount);
+            Console.WriteLine($"Конвертація в доларах: {convertedAmount}");
+
+            // Завдання 4:
+            int[] array = { 4, 7, 2, 0, 5 };
+            if (array.Length > 0)
+            {
+                var result = FindMinMax(array);
+                Console.WriteLine($"Найменшим елементом в масиві є: {result.min}");
+                Console.WriteLine($"Найбільшим елементом в масиві є: {result.max}");
+            }
+            else
+            {
+                Console.WriteLine("Масив є порожнім");
+            }
+
+            // Завдання 5:
+            Console.Write("Вкажіть рядок: ");
+            string str = Console.ReadLine();
+            if (!string.IsNullOrEmpty(str))
+            {
+                CountVowelsAndConsonants(str);
+            }
+            else
+            {
+                Console.WriteLine("Рядок є порожнім");
+            }
+
+            // Завдання 6:
+            Console.WriteLine("Обчислення площі та об'єму круга, прямокутника, куба: ");
+            CalculateCircle();
+            CalculateRectangle();
+            CalculateCube();
+        }
+    }
+}
