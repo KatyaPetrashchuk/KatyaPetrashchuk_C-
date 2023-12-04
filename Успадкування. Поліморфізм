@@ -1,0 +1,79 @@
+using System;
+
+namespace Успадкування_Поліморфізм
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle circle1 = new Circle("I коло", 1);
+            Circle circle2 = new Circle("II коло", 5);
+            Square square1 = new Square("I квадрат", 7);
+            Square square2 = new Square("II квадрат", 11);
+            Console.WriteLine($"Назва: {circle1.Name}. Площа I кола = {circle1.Area()}, периметр I кола = {circle1.Perimeter()}");
+            Console.WriteLine($"Назва: {circle2.Name}. Площа II кола = {circle2.Area()}, периметр II кола: {circle2.Perimeter()}");
+            Console.WriteLine($"Назва: {square1.Name}. Площа I квадрату = {square1.Area()}, периметр I квадрату = {square1.Perimeter()}");
+            Console.WriteLine($"Назва: {square2.Name}. Площа II квадрату = {square2.Area()}, периметр II квадрату = {square2.Perimeter()}");
+            double maxCircleArea = Math.Max(circle1.Area(), circle2.Area());
+            double maxSquareArea = Math.Max(square1.Area(), square2.Area());
+            Console.WriteLine($"Площа найбільшого кола = {maxCircleArea}");
+            Console.WriteLine($"Площа найбільшого квадрату = {maxSquareArea}");
+        }
+    }
+    abstract class Shape
+    {
+        public string name;
+        public string Name
+        {
+            get { return name; }
+        }
+        public Shape(string name)
+        {
+            this.name = name;
+        }
+        public abstract double Area();
+        public abstract double Perimeter();
+    }
+    class Circle : Shape
+    {
+        private double radius;
+        public double Radius
+        {
+            get { return radius; }
+            set { radius = value; }
+        }
+        public Circle(string name, double radius) : base(name)
+        {
+            Radius = radius;
+        }
+        public override double Area()
+        {
+            return Math.PI * Math.Pow(Radius, 2);
+        }
+        public override double Perimeter()
+        {
+            return 2 * Math.PI * Radius;
+        }
+    }
+    class Square : Shape
+    {
+        private double side;
+        public double Side
+        {
+            get { return side; }
+            set { side = value; }
+        }
+        public Square(string name, double side) : base(name)
+        {
+            Side = side;
+        }
+        public override double Area()
+        {
+            return Math.Pow(Side, 2);
+        }
+        public override double Perimeter()
+        {
+            return 4 * Side;
+        }
+    }
+}
